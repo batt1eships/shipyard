@@ -1,7 +1,7 @@
 import {Text} from 'ink';
 import React from 'react';
 
-function Router({name = 'Stranger'}) {
+function Router({name = 'Stranger', mode, options}) {
 	switch (name) {
 		case 'Stranger':
 			return (

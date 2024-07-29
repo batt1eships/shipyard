@@ -7,14 +7,13 @@ import App from './app.js';
 const cli = meow(
 	`
 		Usage
-		  $ battleship-corbitae
+		  $ battleship-jetty
 
 		Options
 			--name  Your name
 
 		Examples
-		yarn battleship-corbitae --type=javascript --task=generate-index
-		  $ battleship-corbitae --name=Jane
+		  $ battleship-jetty --name=Jane
 		  Hello, Jane
 	`,
 	{
@@ -22,6 +21,4 @@ const cli = meow(
 	},
 );
 
-render(
-	<App name={cli.flags.name} type={cli.flags.type} task={cli.flags.task} />,
-);
+render(<App name={cli.flags.name} />);

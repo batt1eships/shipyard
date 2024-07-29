@@ -1,9 +1,14 @@
 {
   "name": "root",
   "private": true,
+  "scripts":{
+    "build": "npx lerna run build"
+  },
   "workspaces": [
     "packages/*",
-    "cli/*"
+    "cli/*",
+    "functions/*",
+    "utils"
   ],
   "devDependencies": {
     "lerna": "^8.1.7"
