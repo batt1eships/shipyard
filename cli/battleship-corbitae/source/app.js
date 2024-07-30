@@ -1,45 +1,32 @@
-import {Text} from 'ink';
+import {Box, Text} from 'ink';
 import React from 'react';
+import Gradient from 'ink-gradient';
+import BigText from 'ink-big-text';
+// import packageJson from '../package.json' with {type: 'json'};
 
-// Base class for tasks
-class Task {
-	constructor(name) {
-		this.name = name;
-	}
-
-	render() {
-		return <Text>Task not implemented</Text>;
-	}
-}
-
-// Generate Index Task
-class GenerateIndexTask extends Task {
-	static description = 'Generate an index.html file';
-	static type = 'string';
-
-	render() {
-		return (
-			<Text>
-				See ya, <Text color="green">{this.name}</Text>
-			</Text>
-		);
-	}
-}
+// Define task-related functions
+const generateIndexTask = name => (
+	<Text>
+		See ya, <Text color="green">{name}</Text>
+	</Text>
+);
 
 // Define task options
 const options = {
 	javascript: {
-		'generate-index': GenerateIndexTask,
+		'generate-index': generateIndexTask,
 	},
 };
-function Router({name = 'Stranger', task, type}) {
+
+// Functional Router component
+const Router = ({name = 'Stranger', task, type}) => {
 	const typeOptions = options[type];
 	if (!typeOptions) {
 		return <Text color="red">Error: Unknown type "{type}"</Text>;
 	}
 
-	const TaskClass = typeOptions[task];
-	if (!TaskClass) {
+	const taskFunction = typeOptions[task];
+	if (!taskFunction) {
 		return (
 			<Text color="red">
 				Error: Unknown task "{task}" for type "{type}"
@@ -47,13 +34,22 @@ function Router({name = 'Stranger', task, type}) {
 		);
 	}
 
-	const taskInstance = new TaskClass(name);
-	return <>{taskInstance.render()}</>;
-}
+	return taskFunction(name);
+};
 
-export default function App(props) {
-	return (
+// Functional Title component
+const Title = () => (
+	<Gradient name="mind">
+		<BigText text={'hi'} />
+	</Gradient>
+);
+
+// Functional App component
+const App = props => (
+	<Box flexDirection="column">
+		<Title />
 		<Router {...props} />
-		// Add other routes here...
-	);
-}
+	</Box>
+);
+
+export default App;

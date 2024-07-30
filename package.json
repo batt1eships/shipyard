@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "scripts":{
+  "scripts": {
     "build": "npx lerna run build"
   },
   "workspaces": [
