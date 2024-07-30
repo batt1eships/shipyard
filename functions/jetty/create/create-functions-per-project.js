@@ -1,1 +1,0 @@
-// TODO: create functions folder for each project specified unless its a storybook ect but all apps should ect as functions are unique to thier host but their deps shouldnt be 
