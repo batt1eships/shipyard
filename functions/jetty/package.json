@@ -1,0 +1,20 @@
+{
+  "name": "jetty-sails",
+  "description": "",
+  "author": "",
+  "version": "0.0.1",
+  "exports": {
+    "./create": "./create",
+    "./git": "./git",
+    "./config": "./config",
+    "./init": "./init"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "dist"
+  ]
+}
