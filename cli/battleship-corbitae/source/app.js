@@ -72,14 +72,38 @@ const Router = ({name = 'Stranger', task, type, pkg}) => {
 };
 
 // Functional Title component
-const Title = ({pkg}) => {
-	if (!pkg) {
+const Title = ({name}) => {
+	if (!name) {
+		return <Text color="red">Error: Could not load package.json</Text>;
+	}
+	return (
+		<Gradient name="mind">
+			<BigText text={name} />
+		</Gradient>
+	);
+};
+// Functional Description component
+const Description = ({description}) => {
+	if (!description) {
+		// return <Text color="red">Error: Could not load package.json</Text>;
+		// add a placeholder description field in package.json
+	}
+	return (
+		<Gradient name="mind">
+			<BigText text={description} />
+		</Gradient>
+	);
+};
+
+// Functional Readme component
+const Contributing = ({readme}) => {
+	if (!readme) {
 		return <Text color="red">Error: Could not load package.json</Text>;
 	}
 
 	return (
 		<Gradient name="mind">
-			<BigText text={pkg.name} />
+			<BigText text={readme} />
 		</Gradient>
 	);
 };
@@ -87,6 +111,7 @@ const Title = ({pkg}) => {
 // Functional App component
 const App = props => {
 	const [pkg, setPkg] = useState(null);
+	const [showReadme, setShowReadme] = useState(false);
 
 	useEffect(() => {
 		const fetchPackageJson = async () => {
@@ -99,7 +124,9 @@ const App = props => {
 
 	return (
 		<Box flexDirection="column">
-			<Title pkg={pkg} />
+			<Title name={pkg.name} />
+			<Description description={pkg.description} />
+			{showReadme && <Readme pkg={pkg} />}
 			<Router pkg={pkg} {...props} />
 		</Box>
 	);
