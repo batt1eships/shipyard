@@ -2009,6 +2009,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"battleship-pontoon@workspace:cli/battleship-pontoon":
+  version: 0.0.0-use.local
+  resolution: "battleship-pontoon@workspace:cli/battleship-pontoon"
+  dependencies:
+    "@babel/cli": "npm:^7.21.0"
+    "@babel/preset-react": "npm:^7.18.6"
+    "@vdemedes/prettier-config": "npm:^2.0.1"
+    ava: "npm:^5.2.0"
+    chalk: "npm:^5.2.0"
+    cli-spinners: "npm:^3.1.0"
+    eslint-config-xo-react: "npm:^0.27.0"
+    eslint-plugin-react: "npm:^7.32.2"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    import-jsx: "npm:^5.0.0"
+    ink: "npm:^4.1.0"
+    ink-big-text: "npm:^2.0.0"
+    ink-form: "npm:^2.0.1"
+    ink-testing-library: "npm:^3.0.0"
+    meow: "npm:^11.0.0"
+    prettier: "npm:^2.8.7"
+    react: "npm:^18.2.0"
+    xo: "npm:^0.53.1"
+  bin:
+    battleship-pontoon: dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "battleship-shipyard@workspace:cli/battleship-shipyard":
   version: 0.0.0-use.local
   resolution: "battleship-shipyard@workspace:cli/battleship-shipyard"
